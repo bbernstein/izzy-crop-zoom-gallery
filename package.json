@@ -1,0 +1,15 @@
+{
+  "name": "izzy-crop-zoom-gallery",
+  "version": "1.0.0",
+  "description": "Isadora Javascript actor to crop zoom galleries",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "keywords": [
+    "isadora",
+    "zoomosc"
+  ],
+  "author": "Bernie Bernstein",
+  "license": "ISC"
+}
