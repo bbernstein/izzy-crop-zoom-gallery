@@ -39,7 +39,7 @@
 // module.exports = { main, autoCropZoomGallery };
 // function print(args) {
 //     if (args == '\n') return;
-//     // console.log(args);
+//     //console.log(args);
 // }
 
 
