@@ -39,7 +39,7 @@
 // module.exports = { main, autoCropZoomGallery };
 // function print(args) {
 //     if (args == '\n') return;
-//     //console.log(args);
+//     console.log(args);
 // }
 
 
@@ -142,16 +142,16 @@ function calcOptimalBoxes(frameWidth,
  * @param itemCount Number of boxes to lay out
  * @returns an array of crop values for a bunch of zoom boxes
  */
-function autoCropZoomGallery(sourceWidth, sourceHeight, itemCount, cropName, multiplier, extraTopMargin, galRows, galCols) {
+function autoCropZoomGallery(sourceWidth, sourceHeight, itemCount, cropName, multiplier, galRows, galCols, topMarginOverride, bottomMarginOverride) {
 
     const ASPECTRATIO = 16 / 9;
-    const TOPMARGIN = 45;
-    const BOTTOMMARGIN = 59;
+    const TOPMARGIN = (topMarginOverride && topMarginOverride >= 0) ? topMarginOverride : 45;
+    const BOTTOMMARGIN = (bottomMarginOverride && topMarginOverride >= 0) ? bottomMarginOverride : 59;
     const LEFTMARGIN = RIGHTMARGIN = 6;
     const SPACING = 6;
 
     // these work for me ymmv
-    const topMargin = (extraTopMargin + TOPMARGIN) * multiplier;
+    const topMargin = TOPMARGIN * multiplier;
     const bottomMargin = BOTTOMMARGIN * multiplier;
     const spacing = SPACING * multiplier;
     let leftMargin = rightMargin = LEFTMARGIN * multiplier;
@@ -225,8 +225,8 @@ function autoCropZoomGallery(sourceWidth, sourceHeight, itemCount, cropName, mul
  * @param height screen height
  * @param count number of zoom boxes
  */
-function calcIzzyPannerVals(width, height, count, cropName, multiplier, extraTopMargin, galRows, galCols) {
-    const crops = autoCropZoomGallery(width, height, count, cropName, multiplier, extraTopMargin, galRows, galCols)
+function calcIzzyPannerVals(width, height, count, cropName, multiplier, galRows, galCols, topMarginOverride, bottomMarginOverride) {
+    const crops = autoCropZoomGallery(width, height, count, cropName, multiplier, galRows, galCols, topMarginOverride, bottomMarginOverride)
         // inset by 1 pixels so when we convert to percentages, we the rounding-error will not extend beyond box
         .map((crop) => ({
             left: crop.left + 1,

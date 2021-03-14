@@ -4,11 +4,11 @@ const width = 2560;
 const height = 1440;
 
 // try other sizes to make it work for them
-// const width=746;
-// const height=1417;
+// const width=1920;
+// const height=1080;
 
 for (let count=1; count <= 30; count++) {
-    const crops = cropper.autoCropZoomGallery(width, height, count, 0, 1, 0, 0, 0);
+    const crops = cropper.autoCropZoomGallery(width, height, count, 0, 1, 0, 0, 45, 45);
 
     const frameWidth = width - crops[0].left - crops[0].right;
     const frameHeight = height - crops[0].top - crops[0].bottom;
