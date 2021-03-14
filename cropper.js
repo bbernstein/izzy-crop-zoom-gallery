@@ -53,11 +53,13 @@ function main() {
     const cols = (Number(arguments[5]) < 1 || rows < 1) ? 0 : arguments[5];
     const cropName = arguments[6] != 0;
     const extraTopMargin = arguments[7] || 0;
+    const topMargin = 45 + extraTopMargin;
+    const bottomMargin = 59;
 
     print("Calculating boxes: " + galCount);
     print("\n");
 
-    const result = calcIzzyPannerVals(screenWidth, screenHeight, galCount, cropName, multiplier, extraTopMargin, rows, cols)
+    const result = calcIzzyPannerVals(screenWidth, screenHeight, galCount, cropName, multiplier, rows, cols, topMargin, bottomMargin)
 
     return result;
 }
