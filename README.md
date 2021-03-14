@@ -1,5 +1,18 @@
 # izzy-crop-zoom-gallery
 
+## Isadora - how to use
+
+To use this in Isadora, make a Javascript actor and paste in the contents
+of the file `cropper.js`
+
+There is a full Isadora example that includes this 
+[here](https://troikatronix.com/plugin/zoomosc-name-to-video/).
+
+Look in scene `OSCListen` in the User Actor `Calculate Frame Croppers`.
+
+
+## Running in NodeJS
+
 Javascript code to chop up a zoom gallery
 
 To run this in node, uncomment the lines in `cropper.js`:

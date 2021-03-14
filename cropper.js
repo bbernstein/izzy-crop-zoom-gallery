@@ -2,6 +2,11 @@
  * by Bernie Bernstein. Find me in ZoomOSC Power Users slack channel:
  * https://zoomoscpowerusers.slack.com/join/shared_invite/zt-ibb2jhgm-NEij9uT~Fgp98xVlkNCGVA#/
  *
+ * The gist and other versions could get out-of-date.
+ * You can find the original here:
+ * https://github.com/bbernstein/izzy-crop-zoom-gallery/
+ * (in the file cropper.js)
+ *
  * Updates:
  *
  * 2021-03-13: Removed "extraTopMargin" and added left/right margin overrides.
@@ -13,7 +18,6 @@
  *   5. Number of rows in the gallery (saves figuring it out)
  *   6. Number of cols in the gallery (not really needed since this can be inferred from rows)
  *   7. Crop out names (on = crop the bottom 20 pixels to remove the name)
- *
  *
  * Paste this into a new Javascript User Actor
  *
