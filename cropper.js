@@ -3,6 +3,10 @@
  * https://zoomoscpowerusers.slack.com/join/shared_invite/zt-ibb2jhgm-NEij9uT~Fgp98xVlkNCGVA#/
  *
  * Updates:
+ *
+ * 2021-03-13: Removed "extraTopMargin" and added left/right margin overrides.
+ *      It now can work for pinned windows by setting top and bottom margins to 45
+ *
  * 2021-02-07: Removed kludgy exceptions and tested it to exact pixel on 2560x1440 on sizes 1 to 30 frames
  *   Also added more parameters:
  *   4. Resolution Multiplier lets it work on retina displays
