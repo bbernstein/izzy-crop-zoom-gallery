@@ -10,6 +10,44 @@ There is a full Isadora example that includes this
 
 Look in scene `OSCListen` in the User Actor `Calculate Frame Croppers`.
 
+## Breaking change 2021-03-18
+
+Values returned are now an array of JSON values.
+
+```
+[
+    {
+        count: <# frames in gallary>,
+        width: <width of each of the frames>,
+        height: <height of each of the frames>
+    },
+    {
+        panH: <H position for frame 1>,
+        panV: <V position for frame 1>
+    },
+    {
+        panH: <H position for frame 2>,
+        panV: <V position for frame 2>
+    },
+    {
+        panH: <H position for frame 3>,
+        panV: <V position for frame 3>
+    }
+    ...
+]
+```
+
+To use this in Isadora, you'll want to use 
+[the JSON Parser](https://troikatronix.com/plugin/json-parser-json-bundler/)
+which is not a built-in actor and needs to be installed.
+
+If you need it to run the old way with the single-level array, set the variable OLDSTYLE to be `true`.
+
+
+```
+// If you need a single array of numbers instead of JSON output, change this to `true`    
+var OLDSTYLE=false
+```
 
 ## Running in NodeJS
 

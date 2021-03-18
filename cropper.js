@@ -56,6 +56,7 @@
 //     console.log(args);
 // }
 
+// If you need a single array of numbers instead of JSON output, change this to `true`
 var OLDSTYLE=false
 
 function main() {
