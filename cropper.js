@@ -9,6 +9,12 @@
  *
  * Updates:
  *
+ * 2021-03-18: Changed output to be an array of JSON rather than a plain array of numbers.
+ *      In Isadora, you'll need to use the JSON Parser actor to use this:
+ *      https://troikatronix.com/plugin/json-parser-json-bundler/
+ *      The first element will contain {count, width, height}, then each subsequent
+ *      element will have {pahH, panV} values.
+ *
  * 2021-03-13: Removed "extraTopMargin" and added left/right margin overrides.
  *      It now can work for pinned windows by setting top and bottom margins to 45
  *
@@ -50,7 +56,7 @@
 //     console.log(args);
 // }
 
-
+var OLDSTYLE=false
 
 function main() {
     const screenWidth = arguments[0];
@@ -69,7 +75,8 @@ function main() {
 
     const result = calcIzzyPannerVals(screenWidth, screenHeight, galCount, cropName, multiplier, rows, cols, topMargin, bottomMargin)
 
-    return result;
+    if (OLDSTYLE) return result;
+    return result.map(val => JSON.stringify(val));
 }
 
 function calcDimensionsForShape(frameWidth, frameHeight, boxCount, aspectRatio, spacing, rows, cols) {
@@ -273,10 +280,27 @@ function calcIzzyPannerVals(width, height, count, cropName, multiplier, galRows,
         const panV = screenCenterV - boxCenterV;
         const panVP = 0.5 - panV / screenHei;
 
-        const aCrop = [panHP * 100, panVP * 100]
-        cropPercents = cropPercents.concat(aCrop);
+        if (OLDSTYLE) {
+            const aCrop = [panHP * 100, panVP * 100]
+            cropPercents = cropPercents.concat(aCrop);
+        } else {
+            const aCrop = { panH: panHP * 100, panV: panVP * 100 };
+            cropPercents.push(aCrop);
+        }
     }
-    return [count, boxWidthP * 100, boxHeightP * 100].concat(cropPercents);
+
+    if (OLDSTYLE) {
+        return [count, boxWidthP * 100, boxHeightP * 100].concat(cropPercents);
+    }
+
+    return [
+        {
+            count: count,
+            width: boxWidthP * 100,
+            height: boxHeightP * 100
+        },
+        ...cropPercents
+    ];
 }
 
 
