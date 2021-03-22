@@ -1,6 +1,6 @@
 /**
  * by Bernie Bernstein. Find me in ZoomOSC Power Users slack channel:
- * https://zoomoscpowerusers.slack.com/join/shared_invite/zt-ibb2jhgm-NEij9uT~Fgp98xVlkNCGVA#/
+ * https://liminalpowerusers.slack.com/join/shared_invite/zt-m0aqqn1h-KsdDL4KeX1tTKAx1~VwH_g#/
  *
  * The gist and other versions could get out-of-date.
  * You can find the original here:
